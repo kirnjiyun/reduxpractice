@@ -1,5 +1,15 @@
-let initialState = {};
+let initialState = {
+    diaryList: [],
+};
 
-function reducer(state = initialState, action) {}
-
-export default reducer;
+export default function reducer(state = initialState, action) {
+    switch (action.type) {
+        case "ADD_DIARY":
+            return {
+                ...state,
+                diaryList: [...state.diaryList, action.payload],
+            };
+        default:
+            return state;
+    }
+}

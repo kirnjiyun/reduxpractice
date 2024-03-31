@@ -1,0 +1,28 @@
+.searchBox {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+.input {
+    border: none;
+    background-color: transparent;
+}
+.input:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+.button {
+    background-color: #2633a0;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+}
+
+.button:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}

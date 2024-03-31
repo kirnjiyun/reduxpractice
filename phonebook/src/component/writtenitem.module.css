@@ -1,0 +1,51 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.title {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.date {
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+}
+
+.content {
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0;
+}
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+.updateButton {
+    border: none;
+}
+
+.deleteButton {
+    border: none;
+}
+img {
+    width: 18px;
+    height: 18px;
+    overflow: hidden;
+}

@@ -1,24 +1,29 @@
 import React from "react";
-
+import style from "./newForm.module.css";
 export default function NewForm() {
-    const Submit = (e) => {
-        e.preventDefault();
-    };
-
     return (
-        <div>
-            <form onSubmit={Submit}>
-                <div>
-                    <label>제목</label>
-                    <input type="text" placeholder="제목을 입력해주세요" />
-                </div>
-                <div>
-                    <label>내용</label>
-                    <input type="text" />
-                </div>
+        <form className={style.form}>
+            <div className={style.title}>
+                <label>제목</label>
+                <input
+                    className={style.input}
+                    type="text"
+                    placeholder="제목을 써주세요"
+                />
+            </div>
+            <div className={style.content}>
+                <label>내용</label>
+                <textarea
+                    className={style.textarea}
+                    rows="5"
+                    cols="30"
+                    placeholder="오늘 운동한 내용과 느낌을 작성해주세요"
+                />
+            </div>
 
-                <button type="submit">일기쓰기</button>
-            </form>
-        </div>
+            <button className={style.btn}>
+                <span>일기쓰기</span>
+            </button>
+        </form>
     );
 }

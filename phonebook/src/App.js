@@ -4,11 +4,14 @@ import List from "./component/List";
 import styles from "./App.module.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Row, Col } from "react-bootstrap";
+import Logo from "./images/logo.png";
 
 export default function App() {
     return (
         <div className={styles.app}>
-            <h1 className={styles.title}>연락처</h1>
+            <h1 className={styles.title}>
+                <img src={Logo} className={styles.logo} />
+            </h1>
             <Container>
                 <Row>
                     <Col>

@@ -3,12 +3,13 @@ import style from "./writtenitem.module.css";
 import pencil from "../images/icon-pencil.png";
 import trash from "../images/icon-trash.png";
 import { useDispatch, useSelector } from "react-redux";
+
 export default function WrittenItem({ diary }) {
     const dispatch = useDispatch();
+
     return (
         <div className={style.container}>
             <h2 className={style.title}>{diary.title}</h2>
-            <p className={style.date}>{diary.createdAt}</p>
             <p className={style.content}>{diary.content}</p>
             <div className={style.buttons}>
                 <button className={style.updateButton}>

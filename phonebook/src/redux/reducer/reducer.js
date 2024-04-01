@@ -3,11 +3,15 @@ let initialState = {
 };
 
 export default function reducer(state = initialState, action) {
-    switch (action.type) {
+    const { type, payload } = action;
+    switch (type) {
         case "ADD_DIARY":
             return {
                 ...state,
-                diaryList: [...state.diaryList, action.payload],
+                diaryList: [
+                    ...state.diaryList,
+                    { title: payload.title, content: payload.content },
+                ],
             };
         default:
             return state;

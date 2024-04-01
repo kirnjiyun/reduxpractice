@@ -36,6 +36,7 @@ export default function NewForm() {
                     className={style.input}
                     type="text"
                     placeholder="제목을 써주세요"
+                    value={title}
                     onChange={(e) => {
                         setTitle(e.target.value);
                     }}
@@ -51,6 +52,7 @@ export default function NewForm() {
                     onChange={(e) => {
                         setContent(e.target.value);
                     }}
+                    value={content}
                 />
             </div>
 

@@ -6,17 +6,26 @@ export default function NewForm() {
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
     const dispatch = useDispatch();
+
     const addDiary = (event) => {
         event.preventDefault();
-        //리덕스 스토어에 보내기 그건 액션이 하는건데 디스패치가 액션을 하는거임
+
+        if (!title.trim() || !content.trim()) {
+            alert("제목과 내용을 모두 입력해주세요.");
+            return;
+        }
+
         dispatch({
             type: "ADD_DIARY",
             payload: {
                 id: Date.now(),
                 title,
-                content, //키랑 밸류 똑같아서 하나만 쓰는거임
-            }, //액션 던지면 리듀서로 가는거임
+                content,
+            },
         });
+
+        setTitle("");
+        setContent("");
     };
 
     return (

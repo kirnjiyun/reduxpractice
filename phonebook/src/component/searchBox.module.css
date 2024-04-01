@@ -3,14 +3,17 @@
     flex-direction: row;
     gap: 30px;
 }
+
 .input {
     border: none;
     background-color: transparent;
 }
+
 .input:focus {
     outline: none;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
+
 .button {
     background-color: #2633a0;
     color: white;
@@ -25,4 +28,20 @@
 .button:active {
     transform: scale(0.95);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+@media screen and (max-width: 768px) {
+    .searchBox {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .input,
+    .button {
+        width: 100%;
+    }
+
+    .button {
+        padding: 12px 0;
+    }
 }

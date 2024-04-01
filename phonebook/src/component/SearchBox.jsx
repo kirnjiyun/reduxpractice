@@ -1,16 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import style from "./searchBox.module.css";
 import { useDispatch } from "react-redux";
 
 export default function SearchBox() {
     const dispatch = useDispatch();
 
-    const keywordChange = (e) => {
-        dispatch({ type: "SET_KEYWORD", payload: e.target.value });
-    };
+    const [keyword, setKeyword] = useState("");
 
-    const handleSearch = () => {
-        dispatch({ type: "FILTER_DIARIES" });
+    const keywordChange = (e) => {
+        setKeyword(e.target.value);
+        dispatch({ type: "FILTER_DIARIES", payload: e.target.value });
     };
 
     return (
@@ -19,11 +18,9 @@ export default function SearchBox() {
                 type="text"
                 className={style.input}
                 placeholder="여기서 검색하세요"
+                value={keyword}
                 onChange={keywordChange}
             />
-            <button className={style.button} onClick={handleSearch}>
-                찾기
-            </button>
         </div>
     );
 }

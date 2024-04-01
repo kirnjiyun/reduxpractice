@@ -8,10 +8,12 @@ export default function reducer(state = initialState, action) {
     const { type, payload } = action;
     switch (type) {
         case "ADD_DIARY":
-            const newDiaryList = [
-                ...state.diaryList,
-                { title: payload.title, content: payload.content },
-            ];
+            const newDiary = {
+                id: Date.now(),
+                title: payload.title,
+                content: payload.content,
+            };
+            const newDiaryList = [...state.diaryList, newDiary];
             return {
                 ...state,
                 diaryList: newDiaryList,
@@ -21,6 +23,7 @@ export default function reducer(state = initialState, action) {
                         diary.content.includes(state.keyword)
                 ),
             };
+
         case "SET_KEYWORD":
             return {
                 ...state,
@@ -32,9 +35,25 @@ export default function reducer(state = initialState, action) {
                 ),
             };
         case "FILTER_DIARIES":
+            const keyword = payload;
+            const filtered = state.diaryList.filter(
+                (diary) =>
+                    diary.title.includes(keyword) ||
+                    diary.content.includes(keyword)
+            );
             return {
                 ...state,
-                filteredDiaries: state.diaryList.filter(
+                keyword,
+                filteredDiaries: filtered,
+            };
+        case "DELETE_DIARY":
+            const updatedDiaries = state.diaryList.filter(
+                (diary) => diary.id !== action.payload
+            );
+            return {
+                ...state,
+                diaryList: updatedDiaries,
+                filteredDiaries: updatedDiaries.filter(
                     (diary) =>
                         diary.title.includes(state.keyword) ||
                         diary.content.includes(state.keyword)

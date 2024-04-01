@@ -6,12 +6,15 @@ import { useSelector } from "react-redux";
 
 export default function List() {
     const diaryList = useSelector((state) => state.diaryList);
+    const keyword = useSelector((state) => state.keyword);
+
+    const filteredDiaries = useSelector((state) => state.filteredDiaries);
 
     return (
         <div className={style.written}>
             <SearchBox />
-            {diaryList.map((diary) => (
-                <WrittenItem diary={diary} />
+            {filteredDiaries.map((diary) => (
+                <WrittenItem key={diary.id} diary={diary} />
             ))}
         </div>
     );

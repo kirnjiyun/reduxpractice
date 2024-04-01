@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 export default function WrittenItem({ diary }) {
     const dispatch = useDispatch();
+    const keyword = useSelector((state) => state.keyword);
 
     return (
         <div className={style.container}>
